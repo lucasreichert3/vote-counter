@@ -1,0 +1,44 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+
+model Session {
+  id         String            @id @default(auto()) @map("_id") @db.ObjectId
+  pauta Pauta @relation(fields: [pautaId], references: [id])
+  pautaId String @unique @db.ObjectId
+  votes Voto[]
+  open  Boolean
+  openDate DateTime
+  duration Int
+  updatedAt  DateTime          @updatedAt
+  createdAt  DateTime          @default(now())
+}
+
+model Pauta {
+  id         String            @id @default(auto()) @map("_id") @db.ObjectId
+  title     String
+  session Session?
+  description String
+  updatedAt  DateTime          @updatedAt
+  createdAt  DateTime          @default(now())
+}
+
+model Voto {
+  id         String            @id @default(auto()) @map("_id") @db.ObjectId
+  session  Session  @relation(fields: [sessionId], references: [id])
+  sessionId String  @db.ObjectId
+  userId String
+  voto   String
+  updatedAt  DateTime          @updatedAt
+  createdAt  DateTime          @default(now())
+}
+
