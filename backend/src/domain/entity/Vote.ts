@@ -1,9 +1,11 @@
-export interface Vote {
-  id: string;
-  pautaId: string;
-  vote: VoteEnum;
-  updatedAt: Date;
-  createdAt: Date;
+export default class Vote {
+  constructor(
+    public id: string,
+    public pautaId: string,
+    public vote: VoteEnum,
+    public updatedAt: Date,
+    public createdAt: Date
+  ) {}
 }
 
 export enum VoteEnum {

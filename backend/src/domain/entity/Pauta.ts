@@ -1,10 +1,13 @@
-import { Session } from './Session';
+import Session from './Session';
 
-export interface Pauta {
-  id: string;
-  title: string;
-  description: string;
-  session?: Session;
-  updatedAt: Date;
-  createdAt: Date;
+export default class Pauta {
+  constructor(
+    readonly id: string,
+    readonly title: string,
+    readonly category: string,
+    readonly createdAt: Date,
+    readonly updatedAt: Date,
+    readonly description: string | null,
+    readonly session?: Session
+  ) {}
 }
