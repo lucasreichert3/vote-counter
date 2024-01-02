@@ -7,7 +7,6 @@ export default class Session {
     public closeDate: Date,
     public updatedAt: Date,
     public createdAt: Date,
-    public votes?: Vote[],
     public pauta?: Pauta
   ) {}
 

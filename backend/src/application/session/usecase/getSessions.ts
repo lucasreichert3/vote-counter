@@ -18,7 +18,7 @@ export default class GetSessions {
 
       const list = data.map(
         ({ id, pauta, closeDate, pautaId, updatedAt, createdAt }) =>
-          new Session(id, pautaId, closeDate, updatedAt, createdAt, [], pauta)
+          new Session(id, pautaId, closeDate, updatedAt, createdAt, pauta)
       );
 
       return { data: list, total };

@@ -23,7 +23,6 @@ export default class SessionIsOpen {
         closeDate,
         updatedAt,
         createdAt,
-        [],
         pauta
       );
 

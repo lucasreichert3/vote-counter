@@ -24,7 +24,6 @@ export default class GetSession {
         closeDate,
         updatedAt,
         createdAt,
-        [],
         pauta
       );
     } catch (error: any) {
