@@ -24,7 +24,7 @@ export default class MongoConnection<T> implements Connection<T> {
     take?: number,
     skip?: number
   ): Promise<any> {
-    const total = await this.prisma[table].count();
+    const total = await this.prisma[table].count({ where: params });
 
     const data = await this.prisma[table].findMany({
       where: params,

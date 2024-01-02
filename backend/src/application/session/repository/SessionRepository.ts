@@ -8,7 +8,10 @@ export interface SessionRepository {
     skip?: number,
     includeKey?: string[]
   ): Promise<ListData<SessionDatabase>>;
-  findOne(id: string, includeKey?: string[]): Promise<SessionDatabase>;
+  findOne(
+    id: string,
+    includeKey?: string[]
+  ): Promise<SessionDatabase | undefined>;
 }
 
 export interface SessionDatabase extends Session {

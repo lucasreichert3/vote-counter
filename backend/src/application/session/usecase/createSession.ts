@@ -11,40 +11,35 @@ export default class CreateSession {
 
   async execute(input: Input): Promise<Session> {
     try {
-      const { duration, openDate, pautaId } = input;
+      const { closeDate, pautaId } = input;
 
-      const pauta = await this.pautaRepository.findOne(pautaId);
+      const pauta = await this.pautaRepository.findOne(pautaId, ['session']);
 
       if (!pauta) {
         throw new createHttpError.NotFound('Pauta not found');
       }
 
-      const isOpen = openDate.getTime() < new Date().getTime();
+      console.log(pauta.session);
+
+      if (pauta.session) {
+        throw new createHttpError.BadRequest('Pauta already has a session');
+      }
 
       const { id } = await this.sessionRepository.create({
-        duration,
-        openDate,
+        closeDate,
         pauta: { connect: { id: pautaId } },
-        open: isOpen,
       });
 
-      return new Session(
-        id,
-        pautaId,
-        isOpen,
-        openDate,
-        duration,
-        new Date(),
-        new Date()
-      );
+      return new Session(id, pautaId, closeDate, new Date(), new Date());
     } catch (error: any) {
-      throw new Error(error);
+      console.error(error);
+
+      throw new Error(error.message);
     }
   }
 }
 
 type Input = {
   pautaId: string;
-  duration: number;
-  openDate: Date;
+  closeDate: Date;
 };

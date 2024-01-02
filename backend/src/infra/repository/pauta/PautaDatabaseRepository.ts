@@ -10,15 +10,15 @@ export default class PautaDatabaseRepository implements PautaRepository {
 
   constructor(readonly connection: Connection<PautaDatabase>) {}
 
-  findByCategory(
-    category: string,
+  findAll(
+    filter: Prisma.PautaWhereInput,
     take?: number,
     skip?: number
   ): Promise<ListData<PautaDatabase>> {
     return this.connection.findAll(
       {
         table: this.table,
-        params: { category },
+        params: { ...filter },
         includeKey: ['session'],
       },
       take,
@@ -33,15 +33,11 @@ export default class PautaDatabaseRepository implements PautaRepository {
     });
   }
 
-  findAll(take?: number, skip?: number): Promise<ListData<PautaDatabase>> {
-    return this.connection.findAll(
-      { table: this.table, includeKey: ['session'] },
-      take,
-      skip
-    );
-  }
-
-  findOne(id: string): Promise<PautaDatabase> {
-    return this.connection.findOne({ table: this.table, params: { id } });
+  findOne(id: string, includeKey?: string[]): Promise<PautaDatabase> {
+    return this.connection.findOne({
+      table: this.table,
+      params: { id },
+      includeKey,
+    });
   }
 }

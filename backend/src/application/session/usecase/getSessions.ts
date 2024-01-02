@@ -17,32 +17,13 @@ export default class GetSessions {
       );
 
       const list = data.map(
-        ({
-          id,
-          pauta,
-          open,
-          openDate,
-          pautaId,
-          duration,
-          updatedAt,
-          createdAt,
-        }) =>
-          new Session(
-            id,
-            pautaId,
-            open,
-            openDate,
-            duration,
-            updatedAt,
-            createdAt,
-            [],
-            pauta
-          )
+        ({ id, pauta, closeDate, pautaId, updatedAt, createdAt }) =>
+          new Session(id, pautaId, closeDate, updatedAt, createdAt, [], pauta)
       );
 
       return { data: list, total };
     } catch (error: any) {
-      throw new Error(error);
+      throw new Error(error.message);
     }
   }
 }

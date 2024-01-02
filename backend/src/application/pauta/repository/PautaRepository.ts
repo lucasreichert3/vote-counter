@@ -3,13 +3,15 @@ import { ListData } from '../../../infra/database/Connection';
 
 export interface PautaRepository {
   create(pauta: Prisma.PautaCreateInput): Promise<Pauta>;
-  findAll(take?: number, skip?: number): Promise<ListData<PautaDatabase>>;
-  findOne(id: string): Promise<PautaDatabase>;
-  findByCategory(
-    category: string,
+  findAll(
+    filter: Prisma.PautaWhereInput,
     take?: number,
     skip?: number
   ): Promise<ListData<PautaDatabase>>;
+  findOne(
+    id: string,
+    includeKey?: string[]
+  ): Promise<PautaDatabase | undefined>;
 }
 
 export interface PautaDatabase extends Pauta {

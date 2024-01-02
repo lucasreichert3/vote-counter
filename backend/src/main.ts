@@ -2,13 +2,20 @@ import { Pauta, Session } from '@prisma/client';
 import express from 'express';
 import CreatePauta from './application/pauta/usecase/createPauta';
 import GetPautaById from './application/pauta/usecase/getPautaById';
-import GetPautas from './application/pauta/usecase/getPautas';
-import MongoConnection from './infra/database/MongoConnection';
-import PautaDatabaseRepository from './infra/repository/pauta/PautaDatabaseRepository';
-import SessionDatabaseRepository from './infra/repository/session/SessionDatabaseRepository';
+import GetPautas, {
+  SessionStatus,
+} from './application/pauta/usecase/getPautas';
 import CreateSession from './application/session/usecase/createSession';
 import GetSession from './application/session/usecase/getSession';
 import GetSessions from './application/session/usecase/getSessions';
+import { VoteDatabase } from './application/vote/repository/VoteRepository';
+import CreateVote from './application/vote/usecase/createVote';
+import MongoConnection from './infra/database/MongoConnection';
+import PautaDatabaseRepository from './infra/repository/pauta/PautaDatabaseRepository';
+import SessionDatabaseRepository from './infra/repository/session/SessionDatabaseRepository';
+import VoteDatabaseRepository from './infra/repository/vote/VoteDatabaseRepository';
+import GetVotes from './application/vote/usecase/getVotesBySession';
+import GetPautaWithOpenSessions from './application/pauta/usecase/getPautasWithOpenSession';
 
 const app = express();
 
@@ -33,36 +40,42 @@ app.get('/pauta/:id', async (req, res) => {
   const connection = new MongoConnection<Pauta>();
   const repository = new PautaDatabaseRepository(connection);
 
-  const getPauta = new GetPautaById(repository);
+  try {
+    const getPauta = new GetPautaById(repository);
 
-  const result = await getPauta.execute({ id });
+    const result = await getPauta.execute({ id });
 
-  res.json({ ...result });
+    res.json({ ...result });
+  } catch (error: any) {
+    res.json({ error: error.message });
+  }
 });
 
 app.get('/pauta', async (req, res) => {
-  const { category, page, items } = req.query;
+  const {
+    category,
+    page = 0,
+    items = 10,
+    sessionStatus = SessionStatus.ALL,
+  } = req.query;
 
   const connection = new MongoConnection<Pauta>();
   const repository = new PautaDatabaseRepository(connection);
 
-  const getPauta = new GetPautas(repository);
+  const getPautas = new GetPautas(repository);
 
-  try {
-    const { data, total } = await getPauta.execute({
-      category: category as string,
-      page: page ? Number(page) : undefined,
-      items: items ? Number(items) : undefined,
-    });
+  const { data, total } = await getPautas.execute({
+    sessionStatus: sessionStatus as SessionStatus,
+    category: category as string,
+    page: Number(page),
+    items: Number(items),
+  });
 
-    res.json({ data, total });
-  } catch (error: any) {
-    console.log(JSON.stringify(error.message));
-  }
+  res.json({ data, total });
 });
 
 app.post('/session', async (req, res) => {
-  const { duration, openDate, pautaId } = req.body;
+  const { closeDate, pautaId } = req.body;
 
   const connection = new MongoConnection<Session>();
   const connectionPauta = new MongoConnection<Pauta>();
@@ -72,15 +85,18 @@ app.post('/session', async (req, res) => {
 
   const createSession = new CreateSession(repository, pautaRepository);
 
-  const openDateFormated = new Date(openDate);
+  const closeDateFormated = new Date(closeDate);
 
-  const result = await createSession.execute({
-    duration,
-    openDate: openDateFormated,
-    pautaId,
-  });
+  try {
+    const result = await createSession.execute({
+      closeDate: closeDateFormated,
+      pautaId,
+    });
 
-  res.json({ ...result });
+    res.json({ ...result });
+  } catch (error: any) {
+    res.json({ error: error.message });
+  }
 });
 
 app.get('/session/:id', async (req, res) => {
@@ -91,9 +107,13 @@ app.get('/session/:id', async (req, res) => {
 
   const getSession = new GetSession(repository);
 
-  const result = await getSession.execute({ id });
+  try {
+    const result = await getSession.execute({ id });
 
-  res.json({ ...result });
+    res.json({ ...result });
+  } catch (error: any) {
+    res.json({ error: error.message });
+  }
 });
 
 app.get('/session', async (req, res) => {
@@ -110,6 +130,48 @@ app.get('/session', async (req, res) => {
   });
 
   res.json({ ...result });
+});
+
+app.post('/vote', async (req, res) => {
+  const { sessionId, vote, userId } = req.body;
+
+  const connection = new MongoConnection<VoteDatabase>();
+  const repository = new VoteDatabaseRepository(connection);
+
+  const connectionSession = new MongoConnection<Session>();
+  const sessionRepository = new SessionDatabaseRepository(connectionSession);
+
+  const createVote = new CreateVote(repository, sessionRepository);
+
+  try {
+    const result = await createVote.execute({ sessionId, vote, userId });
+
+    res.json({ ...result });
+  } catch (error: any) {
+    res.json({ error: error.message });
+  }
+});
+
+app.get('/vote', async (req, res) => {
+  const { page = 0, items = 10, sessionId, vote } = req.query;
+
+  const connection = new MongoConnection<VoteDatabase>();
+  const repository = new VoteDatabaseRepository(connection);
+
+  const getVotes = new GetVotes(repository);
+
+  try {
+    const result = await getVotes.execute({
+      sessionId: String(sessionId),
+      page: Number(page),
+      items: Number(items),
+      vote: vote === 'true' ? true : vote === 'false' ? false : undefined,
+    });
+
+    res.json({ ...result });
+  } catch (error: any) {
+    res.json({ error: error.message });
+  }
 });
 
 app.listen(3000);

@@ -1,3 +1,4 @@
+import { Prisma } from '@prisma/client';
 import Pauta from '../../../domain/entity/Pauta';
 import { PautaRepository } from '../repository/PautaRepository';
 
@@ -5,19 +6,24 @@ export default class GetPautas {
   constructor(private pautaRepository: PautaRepository) {}
 
   async execute(input: Input): Promise<{ data: Pauta[]; total: number }> {
-    const { category, page = 0, items = 10 } = input;
+    const { category, page, items, sessionStatus } = input;
 
-    const take = items;
     const skip = page * items;
 
+    const filter: Prisma.PautaWhereInput = { category };
+
+    if (sessionStatus !== SessionStatus.ALL) {
+      const filterType = sessionStatus === SessionStatus.OPEN ? 'gt' : 'lt';
+
+      filter.session = { closeDate: { [filterType]: new Date() } };
+    }
+
     try {
-      const result = category
-        ? await this.pautaRepository.findByCategory(category, take, skip)
-        : await this.pautaRepository.findAll(take, skip);
+      const result = await this.pautaRepository.findAll(filter, items, skip);
 
       const { data, total } = result;
 
-      const items = data.map(
+      const list = data.map(
         ({ id, title, description, category, createdAt, updatedAt, session }) =>
           new Pauta(
             id,
@@ -30,15 +36,22 @@ export default class GetPautas {
           )
       );
 
-      return { data: items, total };
+      return { data: list, total };
     } catch (error: any) {
-      throw new Error(error);
+      throw new Error(error.message);
     }
   }
 }
 
 type Input = {
   category?: string;
-  page?: number;
-  items?: number;
+  page: number;
+  items: number;
+  sessionStatus: SessionStatus;
 };
+
+export enum SessionStatus {
+  OPEN = 'open',
+  CLOSED = 'closed',
+  ALL = 'all',
+}

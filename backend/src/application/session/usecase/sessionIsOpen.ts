@@ -1,24 +1,23 @@
 import createHttpError from 'http-errors';
-import Session from '../../../domain/entity/Session';
 import { SessionRepository } from '../repository/SessionRepository';
+import Session from '../../../domain/entity/Session';
 
-export default class GetSession {
+export default class SessionIsOpen {
   constructor(private sessionRepository: SessionRepository) {}
 
   async execute(input: Input) {
     try {
       const { id } = input;
 
-      const session = await this.sessionRepository.findOne(id, ['pauta']);
+      const sessionExists = await this.sessionRepository.findOne(id, ['pauta']);
 
-      if (!session) {
+      if (!sessionExists) {
         throw new createHttpError.NotFound('Session not found');
       }
 
-      const { createdAt, closeDate, pautaId, updatedAt, pauta } =
-        session;
+      const { createdAt, closeDate, pautaId, updatedAt, pauta } = sessionExists;
 
-      return new Session(
+      const session = new Session(
         id,
         pautaId,
         closeDate,
@@ -27,6 +26,8 @@ export default class GetSession {
         [],
         pauta
       );
+
+      return session.isOpen;
     } catch (error: any) {
       throw new Error(error.message);
     }
