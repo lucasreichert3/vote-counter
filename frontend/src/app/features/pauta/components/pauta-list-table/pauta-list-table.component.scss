@@ -1,0 +1,51 @@
+#pauta-list-table {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  #header {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 1.5rem 1.5rem 0.5rem 1.5rem;
+
+    .title {
+      width: 20%;
+    }
+
+    .category {
+      width: 30%;
+    }
+
+    .createdAt {
+      width: 30%;
+    }
+  }
+
+  #content {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    padding: 0.5rem 1.5rem;
+
+    #pauta-item {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+
+      .title {
+        width: 20%;
+      }
+
+      .category {
+        width: 30%;
+      }
+
+      .createdAt {
+        width: 30%;
+      }
+    }
+  }
+}

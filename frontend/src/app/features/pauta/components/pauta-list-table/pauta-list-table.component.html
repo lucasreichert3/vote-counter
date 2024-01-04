@@ -1,0 +1,17 @@
+<div id="pauta-list-table">
+  <div id="header">
+    <div class="title">Título</div>
+    <div class="category">Categoria</div>
+    <div class="createdAt">Data de criação</div>
+  </div>
+
+  <div id="content">
+    @for (pauta of pautas; track pauta.id) {
+    <div id="pauta-item">
+      <div class="title">{{ pauta.title }}</div>
+      <div class="category">{{ pauta.category }}</div>
+      <div class="createdAt">{{ pauta.createdAt | date: 'dd/MM/yyyy' }}</div>
+    </div>
+    }
+  </div>
+</div>
