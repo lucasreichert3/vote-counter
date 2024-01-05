@@ -11,7 +11,9 @@ import { Observable } from 'rxjs';
 export class PautaService {
   constructor(private httpClient: HttpClient) {}
 
-  getAll(): Observable<ListData<Pauta>> {
-    return this.httpClient.get<ListData<Pauta>>(`${environment.apiUrl}/pauta`);
+  getAll(page = 0, size = 10): Observable<ListData<Pauta>> {
+    return this.httpClient.get<ListData<Pauta>>(`${environment.apiUrl}/pauta`, {
+      params: { page, size },
+    });
   }
 }
