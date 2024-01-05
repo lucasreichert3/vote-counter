@@ -1,0 +1,29 @@
+<div id="header">
+  <div id="search-category">
+    <mat-form-field>
+      <mat-label>Buscar pela categoria</mat-label>
+      <input matInput type="text" [(ngModel)]="value" />
+      @if (value) {
+      <button
+        matSuffix
+        mat-icon-button
+        aria-label="Buscar"
+        (click)="searchPauta.emit(value)"
+      >
+        <mat-icon>search</mat-icon>
+      </button>
+      }
+    </mat-form-field>
+    @if (value) {
+    <button mat-button (click)="cleanSearch()">Limpar busca</button>
+    }
+  </div>
+  <button
+    id="create-pauta-button"
+    mat-raised-button
+    color="primary"
+    (click)="createPautaClick.emit()"
+  >
+    Criar nova pauta
+  </button>
+</div>

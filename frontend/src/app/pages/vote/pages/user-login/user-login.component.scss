@@ -1,11 +1,12 @@
-#pauta-form {
+#user-login {
   margin: auto;
-  width: 60%;
-  height: 60vh;
+  width: 40%;
+  height: 40vh;
 
-  #pauta-form-content {
+  #user-login-content {
     background-color: #fff;
     display: flex;
+    flex-direction: column;
     border-radius: 16px;
     padding: 3rem;
 

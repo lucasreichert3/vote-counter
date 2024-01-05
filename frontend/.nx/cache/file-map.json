@@ -1,0 +1,237 @@
+{
+  "version": "6.0",
+  "nxVersion": "17.1.3",
+  "deps": {
+    "@angular/animations": "^17.0.0",
+    "@angular/cdk": "^17.0.4",
+    "@angular/common": "^17.0.0",
+    "@angular/compiler": "^17.0.0",
+    "@angular/core": "^17.0.0",
+    "@angular/forms": "^17.0.0",
+    "@angular/material": "^17.0.4",
+    "@angular/platform-browser": "^17.0.0",
+    "@angular/platform-browser-dynamic": "^17.0.0",
+    "@angular/router": "^17.0.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.14.2",
+    "@angular-devkit/build-angular": "^17.0.8",
+    "@angular-eslint/builder": "17.1.1",
+    "@angular-eslint/eslint-plugin": "17.1.1",
+    "@angular-eslint/eslint-plugin-template": "17.1.1",
+    "@angular-eslint/schematics": "17.1.1",
+    "@angular-eslint/template-parser": "17.1.1",
+    "@angular/cli": "^17.0.8",
+    "@angular/compiler-cli": "^17.0.0",
+    "@types/jasmine": "~5.1.0",
+    "@typescript-eslint/eslint-plugin": "6.13.1",
+    "@typescript-eslint/parser": "6.13.1",
+    "eslint": "^8.54.0",
+    "jasmine-core": "~5.1.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "typescript": "~5.2.2"
+  },
+  "pathMappings": {},
+  "nxJsonPlugins": [],
+  "fileMap": {
+    "projectFileMap": {},
+    "nonProjectFiles": [
+      {
+        "file": ".editorconfig",
+        "hash": "6686520031028425313"
+      },
+      {
+        "file": ".eslintrc.json",
+        "hash": "14645878845883387518"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "13044518069027839699"
+      },
+      {
+        "file": ".prettierrc",
+        "hash": "16267754514737964994"
+      },
+      {
+        "file": ".vscode/extensions.json",
+        "hash": "5331566439708925252"
+      },
+      {
+        "file": ".vscode/launch.json",
+        "hash": "17038929134016848735"
+      },
+      {
+        "file": ".vscode/tasks.json",
+        "hash": "5336636969995539451"
+      },
+      {
+        "file": "README.md",
+        "hash": "18431895172508978275"
+      },
+      {
+        "file": "angular.json",
+        "hash": "4639206343119360527"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "10025778277704261290"
+      },
+      {
+        "file": "package.json",
+        "hash": "9988119830968309487"
+      },
+      {
+        "file": "src/app/@shared/model/response.ts",
+        "hash": "5408138783819719691"
+      },
+      {
+        "file": "src/app/app.component.html",
+        "hash": "1469017356639342347"
+      },
+      {
+        "file": "src/app/app.component.scss",
+        "hash": "7723292534739781101"
+      },
+      {
+        "file": "src/app/app.component.spec.ts",
+        "hash": "2340510284682825193"
+      },
+      {
+        "file": "src/app/app.component.ts",
+        "hash": "5181679903633340838"
+      },
+      {
+        "file": "src/app/app.config.ts",
+        "hash": "5538953204819662414"
+      },
+      {
+        "file": "src/app/app.routes.ts",
+        "hash": "683451148832004337"
+      },
+      {
+        "file": "src/app/features/pauta/components/pauta-list-table/pauta-list-table.component.html",
+        "hash": "9096396693109503069"
+      },
+      {
+        "file": "src/app/features/pauta/components/pauta-list-table/pauta-list-table.component.scss",
+        "hash": "1825620775070904567"
+      },
+      {
+        "file": "src/app/features/pauta/components/pauta-list-table/pauta-list-table.component.spec.ts",
+        "hash": "3515044907659513600"
+      },
+      {
+        "file": "src/app/features/pauta/components/pauta-list-table/pauta-list-table.component.ts",
+        "hash": "3588622587205784434"
+      },
+      {
+        "file": "src/app/features/pauta/model/pauta.ts",
+        "hash": "5673119894321047052"
+      },
+      {
+        "file": "src/app/features/pauta/service/pauta.service.spec.ts",
+        "hash": "12611215420793480868"
+      },
+      {
+        "file": "src/app/features/pauta/service/pauta.service.ts",
+        "hash": "13745463681088190588"
+      },
+      {
+        "file": "src/app/pages/pauta/pages/pauta-form/pauta-form.component.html",
+        "hash": "12684650842582340427"
+      },
+      {
+        "file": "src/app/pages/pauta/pages/pauta-form/pauta-form.component.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "src/app/pages/pauta/pages/pauta-form/pauta-form.component.spec.ts",
+        "hash": "285744935944952212"
+      },
+      {
+        "file": "src/app/pages/pauta/pages/pauta-form/pauta-form.component.ts",
+        "hash": "3325799901311753301"
+      },
+      {
+        "file": "src/app/pages/pauta/pages/pauta-list/pauta-list.component.html",
+        "hash": "5316508454405106878"
+      },
+      {
+        "file": "src/app/pages/pauta/pages/pauta-list/pauta-list.component.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "src/app/pages/pauta/pages/pauta-list/pauta-list.component.spec.ts",
+        "hash": "5969916812997788199"
+      },
+      {
+        "file": "src/app/pages/pauta/pages/pauta-list/pauta-list.component.ts",
+        "hash": "17692224120229134940"
+      },
+      {
+        "file": "src/app/pages/pauta/pauta.component.html",
+        "hash": "17816966185630879015"
+      },
+      {
+        "file": "src/app/pages/pauta/pauta.component.scss",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "src/app/pages/pauta/pauta.component.spec.ts",
+        "hash": "8316989420515413289"
+      },
+      {
+        "file": "src/app/pages/pauta/pauta.component.ts",
+        "hash": "18025770005961246066"
+      },
+      {
+        "file": "src/app/pages/pauta/pauta.routes.ts",
+        "hash": "15108711649172200602"
+      },
+      {
+        "file": "src/assets/.gitkeep",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "src/environments/environment.ts",
+        "hash": "13117291347604593931"
+      },
+      {
+        "file": "src/favicon.ico",
+        "hash": "3988961587069885523"
+      },
+      {
+        "file": "src/index.html",
+        "hash": "14736350450198435032"
+      },
+      {
+        "file": "src/main.ts",
+        "hash": "4927504514031276065"
+      },
+      {
+        "file": "src/reset.scss",
+        "hash": "7665955236824442787"
+      },
+      {
+        "file": "src/styles.scss",
+        "hash": "12516092370702342846"
+      },
+      {
+        "file": "tsconfig.app.json",
+        "hash": "17337579397915052279"
+      },
+      {
+        "file": "tsconfig.json",
+        "hash": "6830907402848794383"
+      },
+      {
+        "file": "tsconfig.spec.json",
+        "hash": "15575553540147145788"
+      }
+    ]
+  }
+}

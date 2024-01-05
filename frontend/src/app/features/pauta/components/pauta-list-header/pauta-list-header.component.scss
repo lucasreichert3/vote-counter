@@ -1,0 +1,14 @@
+#header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  #search-category {
+    display: flex;
+    align-items: center;
+  }
+
+  #create-pauta-button {
+    margin-bottom: 1rem;
+  }
+}

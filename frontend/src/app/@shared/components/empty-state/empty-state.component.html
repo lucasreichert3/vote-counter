@@ -1,0 +1,14 @@
+<div id="empty-state-container">
+  <div>
+    <mat-icon aria-hidden="false" [fontIcon]="icon"></mat-icon>
+  </div>
+  <div id="title">{{ title }}</div>
+  <div id="description">{{ description }}</div>
+  @if (buttonLabel) {
+  <div id="empty-state-button">
+    <button mat-raised-button color="primary" (click)="buttonClick.emit()">
+      {{ buttonLabel }}
+    </button>
+  </div>
+  }
+</div>

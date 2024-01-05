@@ -1,1 +1,49 @@
-<p>pauta-form works!</p>
+<div id="pauta-form">
+  <h1>Crie a pauta no formário abaixo</h1>
+  <div id="pauta-form-content">
+    <form class="example-form" [formGroup]="form">
+      <mat-form-field class="example-full-width">
+        <mat-label>Título</mat-label>
+        <input matInput placeholder="Título da pauta" formControlName="title" />
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Descrição</mat-label>
+        <input
+          matInput
+          placeholder="Descrição da pauta"
+          formControlName="description"
+        />
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Categoria</mat-label>
+        <input
+          matInput
+          placeholder="Categoria da pauta"
+          formControlName="category"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Data final</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="endDate" />
+        <mat-hint>MM/DD/YYYY - Data final da sessão de votação</mat-hint>
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <div id="footer">
+        <button id="back-button" mat-raised-button (click)="backToList()">
+          Voltar
+        </button>
+        <button mat-raised-button color="primary" (click)="createPauta()">
+          Salvar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -11,9 +11,15 @@
     <div id="pauta-item">
       <div class="title">{{ pauta.title }}</div>
       <div class="category">{{ pauta.category }}</div>
-      <div class="createdAt">{{ pauta.createdAt | date : "dd/MM/yyyy" }}</div>
+      <div class="createdAt">{{ pauta.createdAt | date : 'dd/MM/yyyy' }}</div>
       <div class="button">
-        <button mat-raised-button color="primary">Votar</button>
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="clickVote.emit(pauta)"
+        >
+          Votar
+        </button>
       </div>
     </div>
     }

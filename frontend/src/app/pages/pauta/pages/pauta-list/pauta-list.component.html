@@ -1,5 +1,36 @@
-<div class="list-container">
-  <app-pauta-list-table [pautas]="pautas"></app-pauta-list-table>
-  <mat-paginator [length]="total" [pageSize]="10" (page)="handlePage($event)">
-  </mat-paginator>
+<div id="pauta-list">
+  <app-pauta-list-header
+    (createPautaClick)="redirectToCreatePauta()"
+    (searchPauta)="handleSearch($event)"
+  ></app-pauta-list-header>
+  <div id="pauta-list-content">
+    @if (loading) {
+    <div class="items-on-center">
+      <mat-spinner></mat-spinner>
+    </div>
+    } @else if (pautas.length > 0) {
+    <div id="list-container">
+      <app-pauta-list-table
+        [pautas]="pautas"
+        (clickVote)="redirectToVote($event)"
+      ></app-pauta-list-table>
+    </div>
+
+    <mat-paginator
+      [length]="total"
+      [pageSize]="10"
+      (page)="handlePage($event)"
+    ></mat-paginator>
+    } @else {
+    <div class="items-on-center">
+      <app-empty-state
+        icon="warning"
+        [title]="emptyStateInfo.title"
+        [description]="emptyStateInfo.description"
+        [buttonLabel]="emptyStateInfo.buttonLabel"
+        (buttonClick)="redirectToCreatePauta()"
+      ></app-empty-state>
+    </div>
+    }
+  </div>
 </div>

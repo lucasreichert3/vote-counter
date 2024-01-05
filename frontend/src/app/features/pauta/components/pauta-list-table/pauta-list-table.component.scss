@@ -30,9 +30,6 @@
 
   #content {
     display: flex;
-    height: 75vh;
-    overflow: auto;
-
     flex-direction: column;
 
     #pauta-item {
@@ -72,24 +69,4 @@
       }
     }
   }
-}
-
-/* width */
-::-webkit-scrollbar {
-  width: 4px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #cacaca;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #d9d9d9;
 }

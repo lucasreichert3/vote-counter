@@ -1,0 +1,26 @@
+#empty-state-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  mat-icon {
+    font-size: 65px;
+    width: 65px;
+    height: 65px;
+    color: #d3d3d3;
+  }
+
+  #title {
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  #description {
+    padding-top: 0.5rem;
+    font-size: 12px;
+  }
+
+  #empty-state-button {
+    margin-top: 1rem;
+  }
+}
