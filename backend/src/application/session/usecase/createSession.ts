@@ -19,8 +19,6 @@ export default class CreateSession {
         throw new createHttpError.NotFound('Pauta not found');
       }
 
-      console.log(pauta.session);
-
       if (pauta.session) {
         throw new createHttpError.BadRequest('Pauta already has a session');
       }

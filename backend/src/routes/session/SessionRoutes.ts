@@ -8,10 +8,13 @@ import PautaDatabaseRepository from '../../infra/repository/pauta/PautaDatabaseR
 import { PautaDatabase } from '../../application/pauta/repository/PautaRepository';
 import GetSession from '../../application/session/usecase/getSession';
 import GetSessions from '../../application/session/usecase/getSessions';
+import VoteDatabaseRepository from '../../infra/repository/vote/VoteDatabaseRepository';
+import { VoteDatabase } from '../../application/vote/repository/VoteRepository';
 
 export default class SessionRoutes implements RoutesInterface {
   readonly repository: SessionDatabaseRepository;
   readonly pautaRepository: PautaDatabaseRepository;
+  readonly voteRepository: VoteDatabaseRepository;
   readonly router = express.Router();
 
   constructor(readonly connection: MongoConnection<unknown>) {
@@ -20,6 +23,9 @@ export default class SessionRoutes implements RoutesInterface {
     );
     this.pautaRepository = new PautaDatabaseRepository(
       connection as MongoConnection<PautaDatabase>
+    );
+    this.voteRepository = new VoteDatabaseRepository(
+      connection as MongoConnection<VoteDatabase>
     );
   }
 
@@ -56,7 +62,7 @@ export default class SessionRoutes implements RoutesInterface {
   getById = async (req: Request, res: Response) => {
     const { id } = req.params;
 
-    const getSession = new GetSession(this.repository);
+    const getSession = new GetSession(this.repository, this.voteRepository);
 
     try {
       const result = await getSession.execute({ id });

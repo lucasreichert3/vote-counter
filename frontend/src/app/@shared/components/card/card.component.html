@@ -1,0 +1,28 @@
+<div id="card-container">
+  <h1 id="card-title">{{ title }}</h1>
+  <div id="card-content">
+    <ng-content></ng-content>
+
+    @if (showButtons) {
+    <div id="footer">
+      @if (secondaryButtonLabel) {
+      <button
+        [class.add-margin]="primaryButtonLabel"
+        mat-raised-button
+        (click)="secondaryButtonAction.emit()"
+      >
+        {{ secondaryButtonLabel }}
+      </button>
+      } @if (primaryButtonLabel) {
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="primaryButtonAction.emit()"
+      >
+        {{ primaryButtonLabel }}
+      </button>
+      }
+    </div>
+    }
+  </div>
+</div>

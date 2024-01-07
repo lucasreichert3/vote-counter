@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core'
-import { MatInputModule } from '@angular/material/input'
-import { MatFormFieldModule } from '@angular/material/form-field'
 import {
   FormBuilder,
   FormControl,
@@ -10,12 +8,15 @@ import {
   Validators
 } from '@angular/forms'
 import { MatButtonModule } from '@angular/material/button'
-import { MatDatepickerModule } from '@angular/material/datepicker'
 import { MatNativeDateModule } from '@angular/material/core'
+import { MatDatepickerModule } from '@angular/material/datepicker'
+import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatInputModule } from '@angular/material/input'
 import { Router } from '@angular/router'
+import { switchMap } from 'rxjs'
 import { PautaService } from '../../../../features/pauta/service/pauta.service'
 import { SessionService } from '../../../../features/session/service/session.service'
-import { pipe, switchMap } from 'rxjs'
+import { CardComponent } from '../../../../@shared/components/card/card.component'
 
 @Component({
   selector: 'app-pauta-form',
@@ -27,7 +28,8 @@ import { pipe, switchMap } from 'rxjs'
     MatButtonModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CardComponent
   ],
   templateUrl: './pauta-form.component.html',
   styleUrl: './pauta-form.component.scss'

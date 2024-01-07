@@ -53,8 +53,24 @@
         "hash": "13044518069027839699"
       },
       {
+        "file": ".nx/cache/file-map.json",
+        "hash": "4717405100798992140"
+      },
+      {
+        "file": ".nx/cache/lockfile.hash",
+        "hash": "407338949219320750"
+      },
+      {
+        "file": ".nx/cache/parsed-lock-file.json",
+        "hash": "3223049188564523132"
+      },
+      {
+        "file": ".nx/cache/project-graph.json",
+        "hash": "13218947667336273926"
+      },
+      {
         "file": ".prettierrc",
-        "hash": "16267754514737964994"
+        "hash": "17552809136818509781"
       },
       {
         "file": ".vscode/extensions.json",
@@ -78,11 +94,55 @@
       },
       {
         "file": "package-lock.json",
-        "hash": "10025778277704261290"
+        "hash": "5006755862019637948"
       },
       {
         "file": "package.json",
         "hash": "9988119830968309487"
+      },
+      {
+        "file": "src/app/@core/model/user.ts",
+        "hash": "9073342484940524924"
+      },
+      {
+        "file": "src/app/@core/service/user-session.service.spec.ts",
+        "hash": "5728501378949482516"
+      },
+      {
+        "file": "src/app/@core/service/user-session.service.ts",
+        "hash": "3178655021083948101"
+      },
+      {
+        "file": "src/app/@shared/components/card/card.component.html",
+        "hash": "2928774076997969503"
+      },
+      {
+        "file": "src/app/@shared/components/card/card.component.scss",
+        "hash": "4310956226672337315"
+      },
+      {
+        "file": "src/app/@shared/components/card/card.component.spec.ts",
+        "hash": "1749985146416012671"
+      },
+      {
+        "file": "src/app/@shared/components/card/card.component.ts",
+        "hash": "9988975470903860300"
+      },
+      {
+        "file": "src/app/@shared/components/empty-state/empty-state.component.html",
+        "hash": "12631771102294031266"
+      },
+      {
+        "file": "src/app/@shared/components/empty-state/empty-state.component.scss",
+        "hash": "16464371088866019479"
+      },
+      {
+        "file": "src/app/@shared/components/empty-state/empty-state.component.spec.ts",
+        "hash": "8660946383495065164"
+      },
+      {
+        "file": "src/app/@shared/components/empty-state/empty-state.component.ts",
+        "hash": "8718668044854186881"
       },
       {
         "file": "src/app/@shared/model/response.ts",
@@ -94,7 +154,7 @@
       },
       {
         "file": "src/app/app.component.scss",
-        "hash": "7723292534739781101"
+        "hash": "17659129827525954825"
       },
       {
         "file": "src/app/app.component.spec.ts",
@@ -110,15 +170,31 @@
       },
       {
         "file": "src/app/app.routes.ts",
-        "hash": "683451148832004337"
+        "hash": "8101993071444557115"
+      },
+      {
+        "file": "src/app/features/pauta/components/pauta-list-header/pauta-list-header.component.html",
+        "hash": "13964683685665404618"
+      },
+      {
+        "file": "src/app/features/pauta/components/pauta-list-header/pauta-list-header.component.scss",
+        "hash": "16090027331811156132"
+      },
+      {
+        "file": "src/app/features/pauta/components/pauta-list-header/pauta-list-header.component.spec.ts",
+        "hash": "3871014191861378398"
+      },
+      {
+        "file": "src/app/features/pauta/components/pauta-list-header/pauta-list-header.component.ts",
+        "hash": "7834670607505422316"
       },
       {
         "file": "src/app/features/pauta/components/pauta-list-table/pauta-list-table.component.html",
-        "hash": "9096396693109503069"
+        "hash": "17505970408750289797"
       },
       {
         "file": "src/app/features/pauta/components/pauta-list-table/pauta-list-table.component.scss",
-        "hash": "1825620775070904567"
+        "hash": "17934545471150714585"
       },
       {
         "file": "src/app/features/pauta/components/pauta-list-table/pauta-list-table.component.spec.ts",
@@ -126,11 +202,11 @@
       },
       {
         "file": "src/app/features/pauta/components/pauta-list-table/pauta-list-table.component.ts",
-        "hash": "3588622587205784434"
+        "hash": "10040892542692145102"
       },
       {
         "file": "src/app/features/pauta/model/pauta.ts",
-        "hash": "5673119894321047052"
+        "hash": "18247126189982001461"
       },
       {
         "file": "src/app/features/pauta/service/pauta.service.spec.ts",
@@ -138,15 +214,55 @@
       },
       {
         "file": "src/app/features/pauta/service/pauta.service.ts",
-        "hash": "13745463681088190588"
+        "hash": "7283477860886484760"
+      },
+      {
+        "file": "src/app/features/session/model/session.ts",
+        "hash": "17704769186480234866"
+      },
+      {
+        "file": "src/app/features/session/service/session.service.spec.ts",
+        "hash": "7041969579766695831"
+      },
+      {
+        "file": "src/app/features/session/service/session.service.ts",
+        "hash": "17386940621130602051"
+      },
+      {
+        "file": "src/app/features/vote/model/vote.ts",
+        "hash": "6935448535641292714"
+      },
+      {
+        "file": "src/app/features/vote/service/vote.service.spec.ts",
+        "hash": "10180669890642351611"
+      },
+      {
+        "file": "src/app/features/vote/service/vote.service.ts",
+        "hash": "9855686656377839188"
+      },
+      {
+        "file": "src/app/pages/pauta/pages/pauta-detail/pauta-detail.component.html",
+        "hash": "10524918187664918302"
+      },
+      {
+        "file": "src/app/pages/pauta/pages/pauta-detail/pauta-detail.component.scss",
+        "hash": "13279028009498099266"
+      },
+      {
+        "file": "src/app/pages/pauta/pages/pauta-detail/pauta-detail.component.spec.ts",
+        "hash": "697669703721726163"
+      },
+      {
+        "file": "src/app/pages/pauta/pages/pauta-detail/pauta-detail.component.ts",
+        "hash": "7615628629886584669"
       },
       {
         "file": "src/app/pages/pauta/pages/pauta-form/pauta-form.component.html",
-        "hash": "12684650842582340427"
+        "hash": "14842898179829158116"
       },
       {
         "file": "src/app/pages/pauta/pages/pauta-form/pauta-form.component.scss",
-        "hash": "3244421341483603138"
+        "hash": "10501274806875629036"
       },
       {
         "file": "src/app/pages/pauta/pages/pauta-form/pauta-form.component.spec.ts",
@@ -154,15 +270,15 @@
       },
       {
         "file": "src/app/pages/pauta/pages/pauta-form/pauta-form.component.ts",
-        "hash": "3325799901311753301"
+        "hash": "2131770187791857735"
       },
       {
         "file": "src/app/pages/pauta/pages/pauta-list/pauta-list.component.html",
-        "hash": "5316508454405106878"
+        "hash": "7599239691031373530"
       },
       {
         "file": "src/app/pages/pauta/pages/pauta-list/pauta-list.component.scss",
-        "hash": "3244421341483603138"
+        "hash": "12396693397652469407"
       },
       {
         "file": "src/app/pages/pauta/pages/pauta-list/pauta-list.component.spec.ts",
@@ -170,7 +286,7 @@
       },
       {
         "file": "src/app/pages/pauta/pages/pauta-list/pauta-list.component.ts",
-        "hash": "17692224120229134940"
+        "hash": "2308397491418958287"
       },
       {
         "file": "src/app/pages/pauta/pauta.component.html",
@@ -190,7 +306,47 @@
       },
       {
         "file": "src/app/pages/pauta/pauta.routes.ts",
-        "hash": "15108711649172200602"
+        "hash": "12931051743544164791"
+      },
+      {
+        "file": "src/app/pages/vote/pages/user-login/user-login.component.html",
+        "hash": "4562487921433309207"
+      },
+      {
+        "file": "src/app/pages/vote/pages/user-login/user-login.component.scss",
+        "hash": "1375929444292385723"
+      },
+      {
+        "file": "src/app/pages/vote/pages/user-login/user-login.component.spec.ts",
+        "hash": "4858553731683907830"
+      },
+      {
+        "file": "src/app/pages/vote/pages/user-login/user-login.component.ts",
+        "hash": "11450851610518965111"
+      },
+      {
+        "file": "src/app/pages/vote/vote.component.html",
+        "hash": "16378090508188325451"
+      },
+      {
+        "file": "src/app/pages/vote/vote.component.scss",
+        "hash": "10240802383220589908"
+      },
+      {
+        "file": "src/app/pages/vote/vote.component.spec.ts",
+        "hash": "2420287219462782423"
+      },
+      {
+        "file": "src/app/pages/vote/vote.component.ts",
+        "hash": "5649112277246394452"
+      },
+      {
+        "file": "src/app/pages/vote/vote.guard.ts",
+        "hash": "5019098313233550760"
+      },
+      {
+        "file": "src/app/pages/vote/vote.routes.ts",
+        "hash": "5859292787934920705"
       },
       {
         "file": "src/assets/.gitkeep",

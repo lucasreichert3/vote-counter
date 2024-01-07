@@ -1,0 +1,25 @@
+#card-container {
+  width: 100%;
+
+  #card-title {
+    font-weight: 700;
+  }
+
+  #card-content {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+    padding: 2rem;
+
+    #footer {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 1rem;
+
+      .add-margin {
+        margin-right: 1rem;
+      }
+    }
+  }
+}

@@ -7,7 +7,10 @@ export default class Session {
     public closeDate: Date,
     public updatedAt: Date,
     public createdAt: Date,
-    public pauta?: Pauta
+    public pauta?: Pauta,
+    public totalVotes?: number,
+    public inFavor?: number,
+    public against?: number
   ) {}
 
   get isOpen() {

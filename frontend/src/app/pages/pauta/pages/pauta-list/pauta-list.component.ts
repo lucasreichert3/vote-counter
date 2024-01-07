@@ -4,6 +4,7 @@ import { MatPaginatorModule, PageEvent } from '@angular/material/paginator'
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { Router } from '@angular/router'
 import { Subject, takeUntil } from 'rxjs'
+import { UserSessionService } from '../../../../@core/service/user-session.service'
 import { EmptyStateComponent } from '../../../../@shared/components/empty-state/empty-state.component'
 import { PautaListHeaderComponent } from '../../../../features/pauta/components/pauta-list-header/pauta-list-header.component'
 import { PautaListTableComponent } from '../../../../features/pauta/components/pauta-list-table/pauta-list-table.component'
@@ -12,7 +13,6 @@ import {
   PautaSessionStatus
 } from '../../../../features/pauta/model/pauta'
 import { PautaService } from '../../../../features/pauta/service/pauta.service'
-import { UserSessionService } from '../../../../@core/service/user-session.service'
 
 @Component({
   selector: 'app-pauta-list',
@@ -94,8 +94,13 @@ export class PautaListComponent implements OnInit, OnDestroy {
     this.router.navigate(['pauta', 'form'])
   }
 
-  redirectToVote(pauta: Pauta) {
-    this.router.navigate(['vote', pauta.id])
+  redirectToVote({ session }: Pauta) {
+    this.router.navigate(['vote', session?.id])
+  }
+
+  redirectToDetail(pauta: Pauta) {
+    const { session } = pauta
+    this.router.navigate(['pauta', session?.id])
   }
 
   ngOnDestroy(): void {

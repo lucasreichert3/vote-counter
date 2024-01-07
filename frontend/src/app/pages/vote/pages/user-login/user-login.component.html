@@ -1,23 +1,22 @@
 <div id="user-login">
-  <h1>Insira seu CPF para votar</h1>
-  <div id="user-login-content">
-    <form [formGroup]="userForm">
-      <mat-form-field class="example-full-width">
-        <mat-label>CPF</mat-label>
-        <input
-          matInput
-          placeholder="CPF do usuário para votar"
-          formControlName="cpf"
-        />
-      </mat-form-field>
-    </form>
-    <div id="footer">
-      <button id="back-button" mat-raised-button (click)="backToList()">
-        Voltar
-      </button>
-      <button mat-raised-button color="primary" (click)="sendToVote()">
-        Salvar
-      </button>
-    </div>
-  </div>
+  <app-card
+    title="Insira seu CPF para votar"
+    [showButtons]="true"
+    secondaryButtonLabel="Voltar"
+    (secondaryButtonAction)="backToList()"
+    primaryButtonLabel="Salvar"
+    (primaryButtonAction)="sendToVote()"
+  >
+    <div id="user-login-content">
+      <form [formGroup]="userForm">
+        <mat-form-field class="example-full-width">
+          <mat-label>CPF</mat-label>
+          <input
+            matInput
+            placeholder="CPF do usuário para votar"
+            formControlName="cpf"
+          />
+        </mat-form-field>
+      </form></div
+  ></app-card>
 </div>

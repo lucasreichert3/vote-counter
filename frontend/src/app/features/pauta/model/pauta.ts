@@ -1,3 +1,5 @@
+import { Session } from "../../session/model/session"
+
 export interface Pauta {
   id: string
   title: string
@@ -5,6 +7,7 @@ export interface Pauta {
   category: string
   createdAt: Date
   updatedAt: Date
+  session?: Session
 }
 
 export enum PautaSessionStatus {

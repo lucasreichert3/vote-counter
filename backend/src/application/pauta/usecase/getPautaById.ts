@@ -9,7 +9,7 @@ export default class GetPautaById {
     try {
       const { id } = input;
 
-      const result = await this.pautaRepository.findOne(id);
+      const result = await this.pautaRepository.findOne(id, ['session']);
 
       if (!result) {
         throw new createHttpError.NotFound('Pauta not found');

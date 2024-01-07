@@ -1,0 +1,42 @@
+<div id="pauta-detail-container">
+  <app-card
+    title="Detalhes da pauta"
+    [showButtons]="true"
+    secondaryButtonLabel="Voltar"
+    (secondaryButtonAction)="backToList()"
+  >
+    @if (pauta) {
+    <div id="pauta-info-container">
+      <div id="pauta-info">
+        <h1>{{ pauta.title }}</h1>
+        <p id="description">{{ pauta.description }}</p>
+        <div id="category-created">
+          <span>{{ pauta.createdAt | date : 'dd/MM/yyyy HH:mm' }}</span>
+          <mat-chip>
+            <span id="category-info">{{ pauta.category }}</span>
+          </mat-chip>
+        </div>
+      </div>
+      <div id="vote-info">
+        <div id="total-vote-quantity">{{ session.totalVotes }} votos</div>
+        @if (session.totalVotes && session.totalVotes > 0) {
+        <div class="total-votes-info">
+          {{ session.inFavor }} a favor e {{ session.against }} contra
+        </div>
+        }
+        <div class="total-votes-info">
+          {{ sessionDateInfo }}
+          {{ session.closeDate | date : 'dd/MM/yyyy' }}
+        </div>
+        @if (sessionBadgeInfo) {
+        <div id="session-status" [ngClass]="sessionBadgeInfo.color">
+          <mat-chip>
+            <span id="category-info">{{ sessionBadgeInfo.text }}</span>
+          </mat-chip>
+        </div>
+        }
+      </div>
+    </div>
+    }
+  </app-card>
+</div>

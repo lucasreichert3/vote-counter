@@ -35,4 +35,8 @@ export class PautaService {
   create(pauta: PautaInput): Observable<Pauta> {
     return this.httpClient.post<Pauta>(`${environment.apiUrl}/pauta`, pauta)
   }
+
+  getById(id: string): Observable<Pauta> {
+    return this.httpClient.get<Pauta>(`${environment.apiUrl}/pauta/${id}`)
+  }
 }

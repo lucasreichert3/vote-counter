@@ -11,6 +11,7 @@ import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
 import { ActivatedRoute, Router } from '@angular/router'
 import { UserSessionService } from '../../../../@core/service/user-session.service'
+import { CardComponent } from '../../../../@shared/components/card/card.component'
 
 @Component({
   selector: 'app-user-login',
@@ -19,7 +20,8 @@ import { UserSessionService } from '../../../../@core/service/user-session.servi
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatButtonModule
+    MatButtonModule,
+    CardComponent
   ],
   templateUrl: './user-login.component.html',
   styleUrl: './user-login.component.scss'
@@ -47,11 +49,9 @@ export class UserLoginComponent {
       return
     }
 
-    console.log('pass')
-
     this.saveUser()
-    const { pautaId } = this.activatedRoute.snapshot.params
-    this.router.navigate(['vote', pautaId])
+    const { sessionId } = this.activatedRoute.snapshot.params
+    this.router.navigate(['vote', sessionId])
   }
 
   saveUser() {

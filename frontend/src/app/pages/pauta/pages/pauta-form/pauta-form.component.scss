@@ -7,22 +7,13 @@
     background-color: #fff;
     display: flex;
     border-radius: 16px;
-    padding: 3rem;
+    padding: 2rem 2rem 0 2rem;
 
     form {
       width: 100%;
 
       mat-form-field {
         width: 100%;
-      }
-    }
-
-    #footer {
-      display: flex;
-      justify-content: flex-end;
-
-      #back-button {
-        margin-right: 1rem;
       }
     }
   }

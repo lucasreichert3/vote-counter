@@ -16,8 +16,6 @@ export default class GetVotes {
         delete filter.vote;
       }
 
-      console.log(filter);
-
       const { data, total } = await this.voteRepository.findAll(
         filter,
         skip,

@@ -1,1 +1,53 @@
-<p>vote works!</p>
+<div id="vote-container">
+  <app-card
+    title="Vote sobre esta pauta"
+    [showButtons]="true"
+    secondaryButtonLabel="Voltar"
+    (secondaryButtonAction)="backToList()"
+  >
+    <div id="vote-content">
+      @if (pauta) {
+      <div id="pauta-info-container">
+        <div class="pauta-info">
+          <span class="label">Título</span>
+          <span class="info">
+            {{ pauta.title }}
+          </span>
+        </div>
+        <div class="pauta-info">
+          <span class="label">Descrição</span>
+          <span class="info">
+            {{ pauta.description || '-' }}
+          </span>
+        </div>
+        <div class="pauta-info">
+          <span class="label">Criada em</span>
+          <span class="info">
+            {{ pauta.createdAt | date : 'dd/MM/yyyy' }}
+          </span>
+        </div>
+        <div class="pauta-info">
+          <span class="label">Categoria</span>
+          <span class="info">
+            {{ pauta.category }}
+          </span>
+        </div>
+      </div>
+      <div id="vote-choice">
+        <h1>Qual é o seu voto?</h1>
+        <div>
+          <button mat-raised-button (click)="handleVote(false)">Não</button>
+          <button
+            id="no-button"
+            color="primary"
+            mat-raised-button
+            (click)="handleVote(true)"
+          >
+            Sim
+          </button>
+        </div>
+      </div>
+      }
+    </div>
+  </app-card>
+</div>

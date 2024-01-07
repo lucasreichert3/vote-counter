@@ -13,6 +13,7 @@
       <app-pauta-list-table
         [pautas]="pautas"
         (clickVote)="redirectToVote($event)"
+        (clickItem)="redirectToDetail($event)"
       ></app-pauta-list-table>
     </div>
 

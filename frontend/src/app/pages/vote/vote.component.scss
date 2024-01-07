@@ -1,0 +1,54 @@
+#vote-container {
+  margin: auto;
+  width: 70%;
+
+  #vote-content {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+
+    form {
+      width: 100%;
+
+      mat-form-field {
+        width: 100%;
+      }
+    }
+
+    #pauta-info-container {
+      display: flex;
+      border-bottom: 1px solid #e9e9e9;
+      padding: 2rem;
+      justify-content: space-between;
+
+      .pauta-info {
+        display: flex;
+        flex-direction: column;
+        margin-right: 1rem;
+        justify-content: space-between;
+
+        .label {
+          font-weight: 700;
+          font-size: 16px;
+        }
+
+        .info {
+          font-weight: 400;
+          font-size: 12px;
+        }
+      }
+    }
+
+    #vote-choice {
+      display: flex;
+      align-items: center;
+      margin-top: 1rem;
+      flex-direction: column;
+
+      #no-button {
+        margin-left: 1.5rem;
+      }
+    }
+  }
+}

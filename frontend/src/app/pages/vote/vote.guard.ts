@@ -9,13 +9,13 @@ import {
 import { UserSessionService } from '../../@core/service/user-session.service'
 
 export const canLoadVote: CanActivateFn = (route: ActivatedRouteSnapshot) => {
-  const { pautaId } = route.params
+  const { sessionId } = route.params
   const authService = inject(UserSessionService)
   const router = inject(Router)
   const user = authService.getUser()
 
   if (!user) {
-    router.navigate(['vote', 'user-login', pautaId])
+    router.navigate(['vote', 'user-login', sessionId])
     return false
   }
 
@@ -25,13 +25,13 @@ export const canLoadVote: CanActivateFn = (route: ActivatedRouteSnapshot) => {
 export const canLoadUserLogin: CanActivateFn = (
   route: ActivatedRouteSnapshot
 ) => {
-  const { pautaId } = route.params
+  const { sessionId } = route.params
   const authService = inject(UserSessionService)
   const router = inject(Router)
   const user = authService.getUser()
 
   if (user) {
-    router.navigate(['vote', pautaId])
+    router.navigate(['vote', sessionId])
     return false
   }
 

@@ -13,13 +13,15 @@
       <div class="category">{{ pauta.category }}</div>
       <div class="createdAt">{{ pauta.createdAt | date : 'dd/MM/yyyy' }}</div>
       <div class="button">
-        <button
-          mat-raised-button
-          color="primary"
-          (click)="clickVote.emit(pauta)"
-        >
-          Votar
+        <button mat-button [matMenuTriggerFor]="menu" color="primary">
+          Ações
         </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="clickVote.emit(pauta)">Votar</button>
+          <button mat-menu-item (click)="clickItem.emit(pauta)">
+            Ver detalhes
+          </button>
+        </mat-menu>
       </div>
     </div>
     }

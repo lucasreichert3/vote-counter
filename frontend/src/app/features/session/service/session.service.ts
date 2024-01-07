@@ -16,4 +16,8 @@ export class SessionService {
       session
     )
   }
+
+  getById(id: string): Observable<Session> {
+    return this.httpClient.get<Session>(`${environment.apiUrl}/session/${id}`)
+  }
 }

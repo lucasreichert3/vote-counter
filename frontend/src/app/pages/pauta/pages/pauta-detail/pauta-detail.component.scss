@@ -1,0 +1,67 @@
+#pauta-detail-container {
+  width: 50%;
+  margin: auto;
+
+  #pauta-info-container {
+    #pauta-info {
+      h1 {
+        font-weight: 700;
+        font-size: 18px;
+        margin-bottom: 0;
+      }
+      #description {
+        font-size: 12px;
+        margin-bottom: 0;
+      }
+
+      #category-created {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        font-size: 12px;
+        margin-top: 0.5rem;
+
+        #category-info {
+          font-weight: 700;
+          font-size: 12px;
+          padding: 0 1rem;
+        }
+
+        mat-chip {
+          margin-left: 1rem;
+        }
+      }
+    }
+    #vote-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 0 1rem 0;
+
+      #total-vote-quantity {
+        font-size: 24px;
+        font-weight: 700;
+      }
+
+      .total-votes-info {
+        font-size: 12px;
+      }
+
+      #session-status {
+        padding-top: 0.5rem;
+
+        &.success {
+          mat-chip {
+            background-color: #8af0be;
+          }
+        }
+
+        &.error {
+          mat-chip {
+            background-color: #f08a8a;
+          }
+        }
+      }
+    }
+  }
+}
